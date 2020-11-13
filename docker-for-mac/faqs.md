@@ -12,7 +12,7 @@ title: Frequently asked questions (FAQ)
 
 You can download the Stable or the Edge version of Docker Desktop from [Docker Hub](https://hub.docker.com/editions/community/docker-ce-desktop-mac/).
 
-For installation instructions, see [Install Docker Desktop on Mac](install.md){: target="_blank" class="_"}.
+For installation instructions, see [Install Docker Desktop on Mac](install.md){: target="_blank" rel="noopener" class="_"}.
 
 ### What is the difference between the Stable and Edge versions of Docker Desktop?
 
@@ -33,7 +33,11 @@ Yes, you can switch between Stable and Edge versions. You can try out the Edge r
 
 ## What are the system requirements for Docker Desktop?
 
-You need a Mac that supports hardware virtualization. For more information, see [Docker Desktop Mac system requirements](install/#system-requirements).
+You need a Mac that supports hardware virtualization. For more information, see [Docker Desktop Mac system requirements](install.md#system-requirements).
+
+## Is Docker Desktop compatible with Apple silicon processors?
+
+At the moment, Docker Desktop is compatible with Intel processors only. You can follow the status of Apple Silicon support in our [roadmap](https://github.com/docker/roadmap/issues/142){:target="_blank" rel="noopener" class="_"}.
 
 ## What is an experimental feature?
 
@@ -50,9 +54,9 @@ On Docker Desktop, clients can connect to the Docker Engine through a Unix
 socket: `unix:///var/run/docker.sock`.
 
 See also [Docker Engine API](../engine/api/index.md) and Docker Desktop for Mac forums topic
-[Using pycharm Docker plugin..](https://forums.docker.com/t/using-pycharm-docker-plugin-with-docker-beta/8617){: target="_blank" class="_"}.
+[Using pycharm Docker plugin..](https://forums.docker.com/t/using-pycharm-docker-plugin-with-docker-beta/8617){: target="_blank" rel="noopener" class="_"}.
 
-If you are working with applications like [Apache Maven](https://maven.apache.org/){: target="_blank" class="_"}
+If you are working with applications like [Apache Maven](https://maven.apache.org/){: target="_blank" rel="noopener" class="_"}
 that expect settings for `DOCKER_HOST` and `DOCKER_CERT_PATH` environment
 variables, specify these to connect to Docker instances through Unix sockets.
 For example:
@@ -74,11 +78,7 @@ For more information and examples, see
 We recommend that you publish a port, or connect from another container. You can use the same method on Linux if the container is on an overlay network and not a bridge network, as these are not routed.
 
 For more information and examples, see
-[I want to connect to a container from the Mac](networking.md#i-want-to-connect-to-a-container-from-the-mac) in the [Networking](/docker-for-mac/networking/) topic.
-
-### Can I use an SSH agent inside a container?
-
-Yes, you can use the host’s SSH agent inside a container. For more information, see [SSH agent forwarding](osxfs.md#ssh-agent-forwarding).
+[I want to connect to a container from the Mac](networking.md#i-want-to-connect-to-a-container-from-the-mac) in the [Networking](networking.md) topic.
 
 ### How do I add custom CA certificates?
 
@@ -97,7 +97,12 @@ serial port) to a container as it requires support at the hypervisor level.
 
 ### Can I run Docker Desktop in nested virtualization scenarios?
 
-Docker Desktop can run inside a Windows 10 VM running on apps like Parallels or VMware Fusion on a Mac provided that the VM is properly configured. However, problems and intermittent failures may still occur due to the way these apps virtualize the hardware. For these reasons, **Docker Desktop is not supported in nested virtualization scenarios**. It might work in some cases, and not in others. For more information, see [Running Docker Desktop in nested virtualization scenarios](/docker-for-windows/troubleshoot/#running-docker-desktop-in-nested-virtualization-scenarios).
+Docker Desktop can run inside a Windows 10 VM running on apps like Parallels or
+VMware Fusion on a Mac provided that the VM is properly configured. However,
+problems and intermittent failures may still occur due to the way these apps
+virtualize the hardware. For these reasons, **Docker Desktop is not supported in
+nested virtualization scenarios**. It might work in some cases, and not in others.
+For more information, see [Running Docker Desktop in nested virtualization scenarios](../docker-for-windows/troubleshoot.md#running-docker-desktop-in-nested-virtualization-scenarios).
 
 ## Components of Docker Desktop
 
@@ -133,10 +138,10 @@ functionality you'd like to see added.
 You can find information about diagnosing and troubleshooting common issues in the [Logs and Troubleshooting](troubleshoot) topic.
 
 If you do not find a solution in Troubleshooting, browse issues on
-[Docker Desktop for Mac issues on GitHub](https://github.com/docker/for-mac/issues){: target="_blank" class="_"} or create a new one. You can also create new issues based on diagnostics. To learn more, see
+[Docker Desktop for Mac issues on GitHub](https://github.com/docker/for-mac/issues){: target="_blank" rel="noopener" class="_"} or create a new one. You can also create new issues based on diagnostics. To learn more, see
 [Diagnose problems, send feedback, and create GitHub issues](troubleshoot.md#diagnose-problems-send-feedback-and-create-github-issues).
 
-The [Docker Desktop for Mac forum](https://forums.docker.com/c/docker-for-mac){: target="_blank" class="_"}
+The [Docker Desktop for Mac forum](https://forums.docker.com/c/docker-for-mac){: target="_blank" rel="noopener" class="_"}
 provides discussion threads as well, and you can create discussion topics there,
 but we recommend using the GitHub issues over the forums for better tracking and
 response.
@@ -144,7 +149,7 @@ response.
 ### How can I opt out of sending my usage data?
 
 If you do not want to send of usage data, use the Stable channel. For more
-information, see [What is the difference between the Stable and Edge versions of Docker Desktop](#stable-and-edge-channels).
+information, see [What is the difference between the Stable and Edge versions of Docker Desktop](#stable-and-edge-releases).
 
 ### How is personal data handled in Docker Desktop?
 

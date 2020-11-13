@@ -86,8 +86,7 @@ repositories of container images.
 * [Official Images](official_images.md): Pull and use high-quality
 container images provided by Docker.
 * [Publisher Images](publish/customer_faq.md): Pull and use high-
-quality container images provided by external vendors. Certified images also
-include support and guarantee compatibility with Docker Enterprise.
+quality container images provided by external vendors.
 * [Builds](builds/index.md): Automatically build container images from
 GitHub and Bitbucket and push them to Docker Hub.
 * [Webhooks](webhooks.md): Trigger actions after a successful push
@@ -143,7 +142,8 @@ EOF
 2. Run `docker build -t <your_username>/my-first-repo .` to build your Docker
    image.
 
-3. Test your docker image locally by running `docker run <your_username>/my-first-repo`.
+3. Run `docker run <your_username>/my-first-repo` to test your 
+Docker image locally.
 
 4. Run `docker push <your_username>/my-first-repo` to push your Docker image to
 Docker Hub.
@@ -168,5 +168,5 @@ Congratulations! You've successfully:
 - Create an [organization](orgs.md) to use Docker Hub with your team.
 - Automatically build container images from code through [builds](builds/index.md).
 - [Explore](https://hub.docker.com/explore) official & publisher images.
-- [Upgrade your plan](upgrade.md) to push additional private Docker images to
+- [Upgrade your plan](https://www.docker.com/pricing) to push additional private Docker images to
 Docker Hub.

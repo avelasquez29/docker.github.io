@@ -12,17 +12,40 @@ This page contains information about the new features, improvements, known issue
 
 For information on system requirements, installation, and download, see:
 
-- [Install Docker Desktop Enterprise on Mac](/desktop/enterprise/admin/install/mac)
-- [Install Docker Desktop Enterprise on Windows](/desktop/enterprise/admin/install/windows)
+- [Install Docker Desktop Enterprise on Mac](admin/install/mac.md)
+- [Install Docker Desktop Enterprise on Windows](admin/install/windows.md)
 
-For Docker Enterprise Engine release notes, see [Docker Engine release notes](/engine/release-notes).
+For Docker Engine release notes, see [Docker Engine release notes](../../engine/release-notes/index.md).
+
+## Version 2.3.0.0
+2020-04-22
+
+Docker Desktop Enterprise 2.3.0.0 contains a Kubernetes upgrade. Note that your local Kubernetes cluster in Version Pack 3.0 will be reset after installing this version.
+
+This version includes all the bug fixes and minor changes between Docker Desktop Community versions 2.1.0.1 and 2.3.0.0. For details see:
+- [Docker Desktop Community release notes on Mac](../../docker-for-mac/release-notes.md) 
+- [Docker Desktop Community release notes on Windows](../../docker-for-windows/release-notes.md) 
+
+### Bug fixes and minor changes
+
+- Windows: in the `admin-settings.json` configuration file, the `sharedDrives` and `sharedFolders` fields have been replaced by a unique `filesharingDirectories` field.
+- Mac: in the `admin-settings.json` configuration file, the `filesharingDirectories` has been moved out of the `linuxVM` section.
+- The `admin-settings.json` configuration file `configurationFileVersion` field value has been increased from 1 to 2.
+
+### Known issue
+
+Docker Desktop Enterprise 2.3.0.0 contains a change in the configuration file format.
+
+For more information, see:
+- [Update Docker Desktop Enterprise configuration file from version 1 to 2 on Mac](admin/configure/mac-admin.md#from-version-1-to-2)
+- [Update Docker Desktop Enterprise configuration file from version 1 to 2 on Windows](admin/configure/windows-admin.md#from-version-1-to-2)
 
 ## Version 2.1.0.9
 2020-03-13
 
 ### Bug fixes and minor changes
 
-Windows: Security fix - Diagnostics were collected with Administrator privileges, which led to a possible privilege escalation on systems where the Docker Desktop user was not an administrator.
+- Windows: Security fix - Diagnostics were collected with Administrator privileges, which led to a possible privilege escalation on systems where the Docker Desktop user was not an administrator.
 
 ## Version 2.1.0.8
 2019-11-14
@@ -31,10 +54,10 @@ Docker Desktop Enterprise 2.1.0.8 contains a Kubernetes upgrade. Note that your 
 
 ### Upgrades
 
-- [Docker 19.03.5](https://docs.docker.com/engine/release-notes/#19035/) in Version Pack Enterprise 3.0
+- [Docker 19.03.5](/engine/release-notes/#19035) in Version Pack Enterprise 3.0
 - [Kubernetes 1.14.8](https://github.com/kubernetes/kubernetes/releases/tag/v1.14.8) in Version Pack Enterprise 3.0
-- [Docker 18.09.11](https://docs.docker.com/engine/release-notes/#180911) in Version Pack Enterprise 2.1
-- [Docker 17.06.2-ee-25](https://docs.docker.com/engine/release-notes/#17062-ee-25) in Version Pack Enterprise 2.0
+- [Docker 18.09.11](/engine/release-notes/#180911) in Version Pack Enterprise 2.1
+- [Docker 17.06.2-ee-25](/engine/release-notes/#17062-ee-25) in Version Pack Enterprise 2.0
 - [Go 1.12.13](https://golang.org/doc/devel/release.html#go1.12)
 
 ## Version 2.1.0.7
@@ -42,7 +65,7 @@ Docker Desktop Enterprise 2.1.0.8 contains a Kubernetes upgrade. Note that your 
 
 ### Upgrades
 
-[Docker 19.03.4](https://docs.docker.com/engine/release-notes/) in Version Pack Enterprise 3.0
+[Docker 19.03.4](/engine/release-notes/) in Version Pack Enterprise 3.0
 
 ## Version 2.1.0.6
 2019-10-08
@@ -51,21 +74,21 @@ Docker Desktop Enterprise 2.1.0.6 contains a Kubernetes upgrade. Note that your 
 
 ### Upgrades
 
-- [Docker 19.03.3](https://docs.docker.com/engine/release-notes/) in Version Pack Enterprise 3.0
+- [Docker 19.03.3](/engine/release-notes/) in Version Pack Enterprise 3.0
 - [Kubernetes 1.14.7](https://github.com/kubernetes/kubernetes/releases/tag/v1.14.7) in Version Pack Enterprise 3.0
 - [Go 1.12.10](https://github.com/golang/go/issues?q=milestone%3AGo1.12.10+label%3ACherryPickApproved)
 - Application Designer 0.1.8
 
 ### Bug fixes and minor changes
 
-Windows: Docker Desktop no longer tries to modify the `/etc/hosts` file inside Windows containers to add `*.docker.internal` DNS entries.
+- Windows: Docker Desktop no longer tries to modify the `/etc/hosts` file inside Windows containers to add `*.docker.internal` DNS entries.
 
 ## Version 2.1.0.5
 2019-09-16
 
 ### Bug fixes and minor changes
 
- Mac: All binaries included in Docker Desktop are now notarized so that they can run on macOS Catalina. For more information, see [Notarization Requirement for Mac Software](https://developer.apple.com/news/?id=06032019i).
+ - Mac: All binaries included in Docker Desktop are now notarized so that they can run on macOS Catalina. For more information, see [Notarization Requirement for Mac Software](https://developer.apple.com/news/?id=06032019i).
 
 ## Version 2.1.0.4
 2019-09-03
@@ -74,7 +97,7 @@ Docker Desktop Enterprise 2.1.0.3 contains a Kubernetes upgrade. Note that your 
 
 ### Upgrades
 
-- [Docker 19.03.2](https://docs.docker.com/engine/release-notes/) in Version Pack Enterprise 3.0
+- [Docker 19.03.2](/engine/release-notes/) in Version Pack Enterprise 3.0
 - [Kubernetes 1.14.6](https://github.com/kubernetes/kubernetes/releases/tag/v1.14.6) in Version Pack Enterprise 3.0
 - [Go 1.12.9](https://github.com/golang/go/issues?q=milestone%3AGo1.12.9+label%3ACherryPickApproved) in Version Pack Enterprise 3.0
 - [Qemu 4.1.0](https://github.com/docker/binfmt) to cross-compile ARM devices
@@ -92,7 +115,7 @@ Docker Desktop Enterprise 2.1.0.3 contains a Kubernetes upgrade. Note that your 
 
 ### Upgrades
 
-[Docker 19.03.1](https://docs.docker.com/engine/release-notes/) in Version Pack Enterprise 3.0.
+- [Docker 19.03.1](/engine/release-notes/) in Version Pack Enterprise 3.0.
 
 ## Version 2.1.0.1
 2019-07-22
@@ -101,14 +124,14 @@ Docker Desktop Enterprise 2.1.0.1 contains a Kubernetes upgrade. Note that your 
 
 ### Upgrades
 
-- [Docker 19.03.0](https://docs.docker.com/engine/release-notes/) in Version Pack Enterprise 3.0
+- [Docker 19.03.0](/engine/release-notes/) in Version Pack Enterprise 3.0
 - [Kubernetes 1.14.3](https://github.com/kubernetes/kubernetes/releases/tag/v1.14.3) in Version Pack Enterprise 3.0
 - [Compose on Kubernetes 0.4.23](https://github.com/docker/compose-on-kubernetes/releases/tag/v0.4.23) in Version Pack Enterprise 3.0
 - [Docker Compose 1.24.1](https://github.com/docker/compose/releases/tag/1.24.1)
-- [Docker 18.09.8](https://docs.docker.com/engine/release-notes/) in Version Pack Enterprise 2.1
-- [Docker 17.06.2-ee-23](https://docs.docker.com/engine/release-notes/) in Version Pack Enterprise 2.0
+- [Docker 18.09.8](/engine/release-notes/) in Version Pack Enterprise 2.1
+- [Docker 17.06.2-ee-23](/engine/release-notes/) in Version Pack Enterprise 2.0
 - [Docker Credential Helpers 0.6.3](https://github.com/docker/docker-credential-helpers/releases/tag/v0.6.3)
-- [Application Designer 0.1.4](/desktop/enterprise/app-designer/)
+- [Application Designer 0.1.4](app-designer.md)
 
 ### Known issue
 
@@ -123,7 +146,7 @@ Workaround: After signing back into Windows, when Docker Desktop has started, ri
 
 ### Upgrades
 
-- [Docker 19.03.0-rc2](https://docs.docker.com/engine/release-notes/) in Version Pack Enterprise 3.0
+- [Docker 19.03.0-rc2](/engine/release-notes/) in Version Pack Enterprise 3.0
 - Application Designer 0.1.3
 
 ### Bug fixes and minor changes
@@ -139,7 +162,7 @@ Workaround: After signing back into Windows, when Docker Desktop has started, ri
 
 ### Upgrades
 
-- [Docker 19.03.0-rc1](https://docs.docker.com/engine/release-notes/) in Enterprise 3.0 version pack
+- [Docker 19.03.0-rc1](/engine/release-notes/) in Enterprise 3.0 version pack
 - Application Designer 0.1.2
 - [Qemu 4.0.0](https://github.com/docker/binfmt) to cross-compile ARM devices
 
@@ -157,8 +180,8 @@ Workaround: After signing back into Windows, when Docker Desktop has started, ri
 
 ### Upgrades
 
-- [Docker 19.03.0-beta4](https://docs.docker.com/engine/release-notes/) in Enterprise 3.0 version pack
-- [Docker 18.09.6](https://docs.docker.com/engine/release-notes/), [Kubernetes 1.11.10](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.11.md#v11110) in Enterprise 2.1 version pack
+- [Docker 19.03.0-beta4](/engine/release-notes/) in Enterprise 3.0 version pack
+- [Docker 18.09.6](/engine/release-notes/), [Kubernetes 1.11.10](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.11.md#v11110) in Enterprise 2.1 version pack
 - [LinuxKit v0.7](https://github.com/linuxkit/linuxkit/releases/tag/v0.7)
 
 ### Bug fixes and minor changes
@@ -178,7 +201,7 @@ Workaround: After signing back into Windows, when Docker Desktop has started, ri
 
 ### Upgrades
 
-- [Docker Engine 19.03.0-beta2](https://docs.docker.com/engine/release-notes/) for Version Pack Enterprise 3.0.
+- [Docker Engine 19.03.0-beta2](/engine/release-notes/) for Version Pack Enterprise 3.0.
 
 ## Version 2.0.0.2
 2019-04-19
@@ -187,15 +210,15 @@ Workaround: After signing back into Windows, when Docker Desktop has started, ri
 
 ### New
 
-- Version Pack Enterprise 3.0 with [Docker Engine 19.03.0-beta1](https://docs.docker.com/engine/release-notes/) and [Kubernetes 1.14.1](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.14.md#changelog-since-v1141)
+- Version Pack Enterprise 3.0 with [Docker Engine 19.03.0-beta1](/engine/release-notes/) and [Kubernetes 1.14.1](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.14.md#changelog-since-v1141)
 
 - Application Designer now includes new templates for AngularJS and VueJS.
 
 ### Upgrades
 
 - [Docker Compose 1.24.0](https://github.com/docker/compose/releases/tag/1.24.0)
-- [Docker Engine 18.09.5](https://docs.docker.com/engine/release-notes/), [Kubernetes 1.11.7](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.11.md#v1117) and [Compose on Kubernetes 0.4.22](https://github.com/docker/compose-on-kubernetes/releases/tag/v0.4.22) for Version Pack Enterprise 2.1
-- [Docker Engine 17.06.2-ee-21](https://docs.docker.com/engine/release-notes/) for Version Pack Enterprise 2.0
+- [Docker Engine 18.09.5](/engine/release-notes/), [Kubernetes 1.11.7](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.11.md#v1117) and [Compose on Kubernetes 0.4.22](https://github.com/docker/compose-on-kubernetes/releases/tag/v0.4.22) for Version Pack Enterprise 2.1
+- [Docker Engine 17.06.2-ee-21](/engine/release-notes/) for Version Pack Enterprise 2.0
 
 ### Bug fixes and minor changes
 

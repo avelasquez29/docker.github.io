@@ -10,7 +10,7 @@ This page contains information about the system requirements and specific instru
 
 [Download Docker Desktop Enterprise for Mac](https://download.docker.com/mac/enterprise/Docker.pkg){: .button .outline-btn}
 
-> **Note:** By downloading DDE, you agree to the terms of the [Docker Software End User License Agreement](https://www.docker.com/legal/docker-software-end-user-license-agreement){: target="_blank" class="_"} and the [Docker Data Processing Agreement (DPA)](https://www.docker.com/legal/data-processing-agreement){: target="_blank" class="_"}.
+> **Note:** By downloading DDE, you agree to the terms of the [Docker Software End User License Agreement](https://www.docker.com/legal/docker-software-end-user-license-agreement){: target="_blank" rel="noopener" class="_"} and the [Docker Data Processing Agreement (DPA)](https://www.docker.com/legal/data-processing-agreement){: target="_blank" rel="noopener" class="_"}.
 
 ## System requirements
 
@@ -34,7 +34,7 @@ Double-click the `.pkg` file to begin the installation and follow the on-screen 
 
 Mac administrators can use the command line option `\$ sudo installer -pkg Docker.pkg -target /` for fine tuning and mass installation. After running this command, you can start Docker Desktop from the Applications folder on each machine.
 
-Administrators can configure additional settings by modifying the administrator configuration file. For more information, see [Configure Desktop Enterprise for Mac](/desktop/enterprise/admin/configure/mac-admin).
+Administrators can configure additional settings by modifying the administrator configuration file. For more information, see [Configure Desktop Enterprise for Mac](../configure/mac-admin.md).
 
 ## License file
 

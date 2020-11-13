@@ -41,7 +41,7 @@ The following `admin-settings.json` code and table provide the required syntax a
 
 ```json
 {
-  "configurationFileVersion": 1,
+  "configurationFileVersion": 2,
   "engine": {
     "locked": false,
     "value": "linux"
@@ -49,7 +49,7 @@ The following `admin-settings.json` code and table provide the required syntax a
   "analyticsEnabled": {
     "locked": false,
     "value": false
-    },
+  },
   "exposeDockerAPIOnTCP2375": {
     "locked": false,
     "value": false
@@ -68,7 +68,6 @@ The following `admin-settings.json` code and table provide the required syntax a
       "exclude": "docker.com,github.com"
     }
   },
-
   "linuxVM": {
     "cpus": {
       "locked": false,
@@ -95,9 +94,9 @@ The following `admin-settings.json` code and table provide the required syntax a
       "value": "10.0.75.0/28"
     },
     "vpnkitCIDR": {
-	  "locked": false,
-	  "value": "192.168.65.0/28"
-	},
+      "locked": false,
+      "value": "192.168.65.0/28"
+    },
     "useDnsForwarder": {
       "locked": false,
       "value": true
@@ -108,18 +107,17 @@ The following `admin-settings.json` code and table provide the required syntax a
     },
     "dockerDaemonOptions": {
       "experimental": {
-         "locked": false,
-         "value": true
+        "locked": false,
+        "value": true
       }
     }
   },
-
   "windows": {
     "dockerDaemonOptions": {
-       "experimental": {
-          "locked": false,
-          "value": true
-       }
+      "experimental": {
+        "locked": false,
+        "value": true
+      }
     }
   },
   "kubernetes": {
@@ -140,25 +138,30 @@ The following `admin-settings.json` code and table provide the required syntax a
       "value": null
     }
   },
-
-  "template" : {
-      "defaultOrg" : {"value": "myorg", "locked":true},
-      "defaultRegistry" : {"value": "mydtr:5000", "locked":true},
-      "repositories": {
-        "value": [
-          "https://one/library.yaml",
-          "https://two/library.yaml",
-          "https://three/library.yaml"
-          ],
-        "locked" : true
-      }
+  "template": {
+    "defaultOrg": {
+      "value": "myorg",
+      "locked": true
     },
-
-  "sharedDrives": {
-    "locked": true,
-    "value": [ ]
+    "defaultRegistry": {
+      "value": "mydtr:5000",
+      "locked": true
+    },
+    "repositories": {
+      "value": [
+        "https://one/library.yaml",
+        "https://two/library.yaml",
+        "https://three/library.yaml"
+      ],
+      "locked": true
+    }
   },
-  "sharedFolders": ["%USERPROFILE%", "\\\\.\\pipe\\docker_engine"]
+  "filesharingDirectories": {
+    "locked": false,
+    "value": [
+      "%USERPROFILE%"
+    ]
+  }
 }
 ```
 
@@ -182,10 +185,10 @@ Parameter values and descriptions for environment configuration on Windows:
 | `vpnkitCIDR`                      | Specifies the subnet used for VPNKit networking and drive sharing. The chosen subnet must not conflict with other resources on your network.                          |
 | `useDnsForwarder`                 | If `value` is set to `true`, this automatically determines the upstream DNS servers based on the host's network adapters.      |
 | `dns`                             | If `value` for `useDnsForwarder` is set to `false`, the Linux VM uses the server information in this `value` setting for DNS resolution.                       |
-| `dockerDaemonOptions`             | Overrides the options in the Linux daemon config file. For more information, see [Docker engine reference](https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-configuration-file).      |
+| `dockerDaemonOptions`             | Overrides the options in the Linux daemon config file. For more information, see [Docker engine reference](/engine/reference/commandline/dockerd/#daemon-configuration-file).      |
 | (End of `linuxVM` section.)       |                                   |
 | `windows`                         | Parameters and settings related to the Windows daemon-related options - grouped together in this example for convenience.          |
-| `dockerDaemonOptions`             | Overrides the options in the Windows daemon config file. For more information, see [Docker engine reference](https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-configuration-file).     |
+| `dockerDaemonOptions`             | Overrides the options in the Windows daemon config file. For more information, see [Docker engine reference](/engine/reference/commandline/dockerd/#daemon-configuration-file).     |
 | (End of `windows` section.)       |                                   |
 | `kubernetes`                      | Parameters and settings related to kubernetes options - grouped together here for convenience.                  |
 | `enabled`                         | If `locked` is set to `true`, the Kubernetes cluster starts when Docker Desktop Enterprise is started.                          |
@@ -193,9 +196,55 @@ Parameter values and descriptions for environment configuration on Windows:
 | `podNetworkCIDR`                  | This is currently unimplemented. `locked` must be set to true.     |
 | `serviceCIDR`                     | This is currently unimplemented. `locked` must be set to true.     |
 | (End of `kubernetes` section.)    |                                   |
-|`template`|Parameters and settings related to Docker Template and Application Designer - grouped together in this example for convenience. For more information, see [`Docker template config`](/engine/reference/commandline/template_config/).|
+|`template`|Parameters and settings related to Docker Template and Application Designer - grouped together in this example for convenience. |
 |`defaultOrg`| Specifies the default organization to be used in Docker Template and Docker Application Designer. If `locked` is set to `true`, the Kubernetes cluster starts when Docker Desktop Enterprise is started. |
 |`defaultRegistry`|Specifies the default registry to be used in Docker Template and Application Designer.|
 |`repositories`|Lists the repositories that are allowed.|
-| `sharedDrives`                    | If `sharedDrives` is set to `true`, this locks the drives users are allowed to share ( `["C", "D"]` ), but does not actually share drives by default (sharing a drive prompts the user for a password). `value` is a whitelist of drives that can be shared. **Warning:** Note that when updating this value, if you remove drives that have been shared, you must also `net share /delete` those drives. |
-| `sharedFolders`                   | If specified, restricts the folders or named pipes the user is allowed to share with Windows containers.     |
+| `filesharingDirectories`          | The host folders that users can bind-mount in containers.         |
+
+### File format update
+
+#### From version 1 to 2
+
+Docker Desktop Enterprise 2.3.0.0-ent contains a change in the configuration file format.
+
+If you haven’t made any changes to the `admin-settings.json` file in the previous installation, you can simply delete it and Docker Desktop will re-create it automatically.
+Otherwise manual steps are required to update the `admin-settings.json` file.
+
+1. Increase the value of the `configurationFileVersion` field from 1 to 2, i.e. before:
+    ```json
+   {
+      "configurationFileVersion": 1,
+      ...
+   }
+    ```
+    after:
+    ```json
+   {
+      "configurationFileVersion": 2,
+      ...
+   }
+    ```
+
+2. Replace the `sharedDrives` and `sharedFolders` fields with a single `filesharingDirectories` field, e.g. before:
+    ```json
+   {
+      ...
+      "sharedDrives": {
+        "locked": true,
+        "value": ["C"]
+      },
+      "sharedFolders": ["%USERPROFILE%"]
+   }
+    ```
+    after:
+    ```json
+   {
+      ...
+      "filesharingDirectories": {
+        "locked": true,
+        "value": ["C:", "%USERPROFILE%"]
+      }
+   }
+    ```
+
